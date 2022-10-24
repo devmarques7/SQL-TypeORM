@@ -1,22 +1,22 @@
 import {
   Entity,
   Column,
-  PrimaryColumn,
-  UpdateDateColumn,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
+  UpdateDateColumn,
 } from "typeorm";
 
 import { v4 as uuid } from "uuid";
 
-@Entity()
+@Entity("users")
 export class User {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
-  @Column({ length: 100 })
+  @Column({ length: 60 })
   name: string;
 
-  @Column({ length: 100, unique: true })
+  @Column({ length: 60, unique: true })
   email: string;
 
   @Column({ length: 100 })
@@ -28,11 +28,9 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @Column()
   @CreateDateColumn()
   createdAt: Date;
 
-  @Column()
   @UpdateDateColumn()
   updatedAt: Date;
 

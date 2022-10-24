@@ -209,11 +209,11 @@ describe("/users", () => {
         
         const userTobeUpdateRequest = await request(app).get("/users").set("Authorization", token)
         const userTobeUpdateId = userTobeUpdateRequest.body[0].id
-
+     
         const response = await request(app).patch(`/users/${userTobeUpdateId}`).set("Authorization",token).send(newValues)
 
         const userUpdated = await request(app).get("/users").set("Authorization", token)
-
+       
         expect(response.status).toBe(200)
         expect(userUpdated.body[0].name).toEqual("Joana Brito")
     })    

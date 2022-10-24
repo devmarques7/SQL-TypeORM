@@ -10,7 +10,6 @@ export interface IUser {
   name: string;
   email: string;
   isAdm: boolean;
-  password: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -24,4 +23,20 @@ export interface IUserUpdate {
   name?: string;
   email?: string;
   password?: string;
+  id?: string;
+  isAdm?: boolean;
+  isActive?: boolean;
+}
+
+export interface IPatch {
+  email: string;
+  isAdm: boolean;
+  isActive: boolean;
+  id: string;
+  iat: number;
+  exp: number;
+}
+
+export interface IMessage {
+  message: string;
 }
